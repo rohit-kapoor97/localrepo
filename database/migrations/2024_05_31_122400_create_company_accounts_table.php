@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->string('item')->nullable();
             $table->enum('type',['Plus','Minus']);
-            $table->bigint('detail_id')->unsigned()->nullable();
+            $table->biginteger('cust_id')->unsigned()->nullable();
             $table->foreign('cust_id')->references('id')->on('company_details')->onDelete('cascade');
             $table->timestamps();
         });
