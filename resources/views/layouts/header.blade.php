@@ -23,7 +23,7 @@
         }
         .search_bt{
             width:200px;
-            line-height:30px;
+            /* line-height:30px; */
             background-color:black;
             padding:5px 10px;
             outline:none;
@@ -46,7 +46,7 @@
 
 <div class="container">
     <h2 class="text-white mt-2">Welcome</h2>
-   {{Auth::user()->name}} 
+
 <div class="search">
     <form action="">
 <input type="text" class="search_bt" name="q" placeholder="Search">

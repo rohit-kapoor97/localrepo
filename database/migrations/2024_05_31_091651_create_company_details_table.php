@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('contact');
             $table->biginteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->biginteger('company_id')->unsigned()->nullable();
-            $table->foreign('company_id')->references('id')->on('company_users');
             $table->timestamps();
         });
     }

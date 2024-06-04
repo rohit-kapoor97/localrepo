@@ -11,13 +11,13 @@
             padding:0px;
             box-sizing:border-box;
         }
-.main{
-    width:400px;
-    margin: 100px auto;
-    padding:10px 50px;
-    background-color:white;
-    box-shadow:0px 5px 10px rgba(0,0,0,0.5); 
-    justify-content:center;
+        .main{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:0px 40px;
+    
+    /* justify-content:center; */
 }
 
 input{
@@ -62,7 +62,7 @@ width:200px;
  </style>
 </head>
 <body>
-    @include('layouts.header')
+@include('layouts.header')
     <div class="drop_main">
        <button class="mt-3 box"><a href="">Add Company</a></button> 
        <button class="mt-3 box"><a href="">Add Coustmer</a></button> 
@@ -71,23 +71,40 @@ width:200px;
         <button class="mt-3 box"><a href="">Coustmer Details</a></button>
     </div>
     
-    
-    
-    <div class="main">
-    <h1 class="text-success">hello</h1>
-    <form action="{{route('add.coust')}}" Method="Post">
-        @csrf
-
-    <input type="text"  class="mt-3"  name="compname" placeholder="Company Name">
-    <input type="text"  class="mt-3" name="coustname" placeholder="Name">
-    <input type="text" class="mt-3"  name="coustnum" placeholder="Mobile No.">
-    <!-- <input type="hidden"  value="{{Auth::id()}}" name="userid"> -->
-    <div class="bt">
-    <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
-    <button type="button" class="btn btn-primary mt-3">Cancel</button>
    
-    </div>
-    </form>
+    <div class="main mt-5">
+        <table class="table table-striped table-Light">
+            <tbody >
+                <thead class="table-dark">
+                <tr>
+                <th>Sr.No</th>
+                <th>Item</th>
+                <th>Amount</th>
+                <th>Payment Status</th>
+               </tr>
+               </thead>
+               @php $count=1; @endphp
+             @foreach($users as $user)
+               <tr>
+               
+                <td>{{$count}}</td>
+                <td>{{$user -> item}}</td>
+                <td>{{$user -> amount}}</td>
+                <td>{{$user -> type}}</td>
+            
+               
+            
+                
+               </tr>
+               @php $count++ @endphp
+               
+               <a href="{{route('amount.view', $user->cust_id)}}">
+
+              @endforeach
+              Payment</a>
+        </tbody>
+    </table>
+        
     </div>
 
 

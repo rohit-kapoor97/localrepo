@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\CompanyDetail;
 
 class CompanyAccount extends Model
 {
@@ -14,5 +15,8 @@ class CompanyAccount extends Model
         'type',
         'cust_id',
     ];
+    public function getDetailCompany(){
+        return $this->belongsTo(CompanyDetail::class);
+    }
     use HasFactory;
 }

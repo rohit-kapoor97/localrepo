@@ -62,7 +62,7 @@ width:200px;
  </style>
 </head>
 <body>
-    @include('layouts.header')
+@include('layouts.header')
     <div class="drop_main">
        <button class="mt-3 box"><a href="">Add Company</a></button> 
        <button class="mt-3 box"><a href="">Add Coustmer</a></button> 
@@ -71,17 +71,14 @@ width:200px;
         <button class="mt-3 box"><a href="">Coustmer Details</a></button>
     </div>
     
-    
-    
+
     <div class="main">
     <h1 class="text-success">hello</h1>
-    <form action="{{route('add.coust')}}" Method="Post">
+    <form action="{{route('comp.add')}}" Method="Post">
         @csrf
 
-    <input type="text"  class="mt-3"  name="compname" placeholder="Company Name">
-    <input type="text"  class="mt-3" name="coustname" placeholder="Name">
-    <input type="text" class="mt-3"  name="coustnum" placeholder="Mobile No.">
-    <!-- <input type="hidden"  value="{{Auth::id()}}" name="userid"> -->
+    <input type="text"  class="mt-3"  name="namecompany" placeholder="Company Name">
+
     <div class="bt">
     <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
     <button type="button" class="btn btn-primary mt-3">Cancel</button>
@@ -89,8 +86,5 @@ width:200px;
     </div>
     </form>
     </div>
-
-
-    
 </body>
 </html>

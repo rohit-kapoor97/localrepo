@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class companyUser extends Model
 {
+    protected $fillable=['companyname'];
+    public $timestamp=false;
     use HasFactory;
 }
