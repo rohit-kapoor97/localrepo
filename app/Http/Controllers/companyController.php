@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\CompanyAccount;
-use App\Models\CompanyDetail;
+use App\Services\CompanyDetail;
 use App\Models\companyUser;
 
 class companyController extends Controller
@@ -45,12 +46,24 @@ public function company(request $req){
   }
 
   public function comp(){
-    return view('addcust');
+    $comp=companyUser::get();
+    return view('addcust', compact('comp'));
+  }
+
+  public function compview(){
+    $user=companyUser::get();
+    return view('viewcomp', compact('user'));
   }
 
   public function view(){
     $users=CompanyDetail::all();
-    return view('addview', compact('users'));
+    return response()->json($users);
+    // return view('addview', compact('users'));
+  }
+
+  public function custview(){
+    $users=companyDetail::get();
+    return view('viewcust')->with('users', $users);
   }
 
   public function coustmeredit(request $edit){
@@ -100,4 +113,13 @@ return redirect()->route('show.amount');
 
     return view('itemlist', compact('users'));
 }
+
+// public function search(request $req){
+//   $slug=str::slug('name', '-')->companyDetail::where('name', 'likes' ,'%'.$req->name.'%')->paginate(5);
+
+//   return view('search', compact('slug'));
+
+// }
+
+
 }

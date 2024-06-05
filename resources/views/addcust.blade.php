@@ -59,16 +59,30 @@ width:200px;
     border-radius:10px;
     border:none;
 }
+h3{
+    margin:0px 35px;
+}
+select{
+    width:100%;
+    /* line-height:60px; */
+    padding:15px;
+    border-radius:10px;
+    border:2px solid black;
+}
+select:hover{
+    outline:2px solid blue;
+}
  </style>
 </head>
 <body>
     @include('layouts.header')
     <div class="drop_main">
-       <button class="mt-3 box"><a href="">Add Company</a></button> 
-       <button class="mt-3 box"><a href="">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="">View Coustmer</a></button>
-        <button class="mt-3 box"><a href="">Payment</a></button>
-        <button class="mt-3 box"><a href="">Coustmer Details</a></button>
+        <h3>dashboard</h3>
+       <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
+       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
+        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
+        <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
+        <button class="mt-3 box"><a href="{{route('view.add')}}">Coustmer Details</a></button>
     </div>
     
     
@@ -78,7 +92,16 @@ width:200px;
     <form action="{{route('add.coust')}}" Method="Post">
         @csrf
 
-    <input type="text"  class="mt-3"  name="compname" placeholder="Company Name">
+    <select class="mt-3 form-select form-select-lg" aria-label=".form-select-lg example"  name="compname"> 
+    <option selected>Select Company</option>
+@foreach($comp as $user)
+<option>
+{{$user->companyname}}
+
+</option>
+@endforeach
+
+ </select>
     <input type="text"  class="mt-3" name="coustname" placeholder="Name">
     <input type="text" class="mt-3"  name="coustnum" placeholder="Mobile No.">
     <!-- <input type="hidden"  value="{{Auth::id()}}" name="userid"> -->

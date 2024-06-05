@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>Document</title>
     <style>
-        body{
+                body{
             margin:0px;
             padding:0px;
             box-sizing:border-box;
         }
-        .main{
+.main{
     width:100%;
     max-width:900px;
     margin:auto;
@@ -19,29 +19,7 @@
     
     /* justify-content:center; */
 }
-
-input{
-    width:100%;
-    /* line-height:60px; */
-    padding:15px;
-    border-radius:10px;
-    outline:none;
-}
-input:hover{
-    outline:2px solid blue;
-}
-input::placeholder{
-    padding:5px 8px ;
-
-}
-.bt{
-    width:200px;
-    margin:auto;
-    padding:5px 8px;
-    display:flex;
-    gap:20px;
-}
-.drop_main{
+        .drop_main{
     width:300px;
     height:100%;
     background-color:white;
@@ -62,7 +40,7 @@ width:200px;
 h3{
     margin:0px 35px;
 }
- </style>
+    </style>
 </head>
 <body>
 @include('layouts.header')
@@ -74,7 +52,6 @@ h3{
         <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
         <button class="mt-3 box"><a href="{{route('view.add')}}">Coustmer Details</a></button>
     </div>
-   
     <div class="main mt-5">
         <table class="table table-striped table-Light">
             <tbody >
@@ -83,29 +60,24 @@ h3{
                 <th>Sr.No</th>
                 <th>Name</th>
                 <th>Item</th>
-                <th>Total</th>
-                <th>Payment</th>
+             
                </tr>
                </thead>
                @php $count=1; @endphp
              @foreach($users as $user)
-               <tr>
+            <tr>
                
                 <td>{{$count}}</td>
                 <td>{{$user-> name}}</td>
                 <td><a href="{{route('item.view', $user->id)}}" class="text-success">View-Items</a></td>
-                <td>{{$user ->getAccountDetail->where('type', 'Plus')->sum('amount') - $user->getAccountDetail->where('type', 'Minus')->sum('amount')}}</td>
-            
-                <td><a href="{{route('amount.view', $user->id)}}">Payment</a></td>
-
-               </tr>
+                
+            </tr>
                @php $count++ @endphp
               @endforeach
         </tbody>
     </table>
         
     </div>
-
 
     
 </body>

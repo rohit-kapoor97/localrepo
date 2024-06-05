@@ -37,19 +37,28 @@ width:200px;
     border-radius:10px;
     border:none;
 }
+h1{
+    margin:0px 150px;
+}
+h3{
+    margin:0px 35px;
+}
     </style>
 </head>
 <body>
 @include('layouts.header')
-    <div class="drop_main">
-       <button class="mt-3 box"><a href="">Add Company</a></button> 
-       <button class="mt-3 box"><a href="">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="">View Coustmer</a></button>
-        <button class="mt-3 box"><a href="">Payment</a></button>
-        <button class="mt-3 box"><a href="">Coustmer Details</a></button>
+<div class="drop_main">
+        <h3>dashboard</h3>
+       <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
+       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
+        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
+        <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
+        <button class="mt-3 box"><a href="{{route('view.add')}}">Coustmer Details</a></button>
     </div>
     <div class="main mt-5">
-        <table class="table table-striped table-Light">
+
+    <h1 class="text-primary">Welcome To New Canteen</h1>
+        <table class="table table-striped table-Light mt-3">
             <tbody >
                 <thead class="table-dark">
                 <tr>
@@ -77,6 +86,33 @@ width:200px;
     </table>
         
     </div>
+
+    <ul id="data-list"></ul>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            url:'/view',
+            type:'GET',
+            success:function(response){
+              processData(response);
+            }
+        })
+
+        function processData(users) {
+    // Example: Update a list with JSON data
+    var list = $('#data-list');
+    list.empty(); // Clear existing data
+    $.each(users, function(index, item) {
+        list.append('<li>' + item.name + '</li>');
+        list.append('<li>' + item.Comp_name + '</li>');
+        list.append('<li>' + item.contact + '</li>');
+        list.append('<li>' + item.updated_at + '</li>'); // Assuming each item has a 'name' attribute
+    });
+}
+
+
+
+    </script>
 </body>
 </html>

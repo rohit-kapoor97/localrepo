@@ -59,19 +59,24 @@ width:200px;
     border-radius:10px;
     border:none;
 }
+h3{
+    margin:0px 35px;
+}
+.bt_marg{
+    text-decoration:underline;
+}
  </style>
 </head>
 <body>
 @include('layouts.header')
-    <div class="drop_main">
-       <button class="mt-3 box"><a href="">Add Company</a></button> 
-       <button class="mt-3 box"><a href="">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="">View Coustmer</a></button>
-        <button class="mt-3 box"><a href="">Payment</a></button>
-        <button class="mt-3 box"><a href="">Coustmer Details</a></button>
+<div class="drop_main">
+        <h3>dashboard</h3>
+       <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
+       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
+        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
+        <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
+        <button class="mt-3 box"><a href="{{route('view.add')}}">Coustmer Details</a></button>
     </div>
-    
-   
     <div class="main mt-5">
         <table class="table table-striped table-Light">
             <tbody >
@@ -92,16 +97,13 @@ width:200px;
                 <td>{{$user -> amount}}</td>
                 <td>{{$user -> type}}</td>
             
-               
-            
-                
-               </tr>
+            </tr>
                @php $count++ @endphp
-               
-               <a href="{{route('amount.view', $user->cust_id)}}">
+               <h4 class="mb-3">
+               <a href="{{route('amount.view', $user->cust_id)}}" class="bt-marg">
 
               @endforeach
-              Payment</a>
+              Payment</a></h4>
         </tbody>
     </table>
         

@@ -26,6 +26,8 @@ Route::Post('/add',[companycontroller::class, 'create'])->name('add.coust');
 Route::get('/addcoust',[companycontroller::class, 'comp'])->name('view.coust');
 // view customer
 Route::get('/view', [companycontroller::class, 'view'])->name('view.add');
+Route::get('/cust', [companycontroller::class, 'custview'])->name('cust.view');
+Route::get('/comp', [companycontroller::class, 'compview'])->name('view.comp');
 // edit customer
 Route::Post('/editcoust',[companycontroller::class, 'coustmeredit'])->name('edit.coust');
 Route::get('/edit/{id}', [companyController::class, 'editview'])->name('view.edit');
@@ -35,6 +37,8 @@ Route::Post('/addamount', [companycontroller::class, 'amountshow'])->name('amoun
 Route::get('/show/{id}', [companycontroller::class, 'viewamount'])->name('amount.view');
 // view Item
 Route::get('/viewlist/{id}', [companycontroller::class, 'listitem'])->name('item.view');
+// search
+// Route::Post('/search', [companycontroller::class, 'search'])->name('search.view');
 
 
 

@@ -48,8 +48,9 @@
     <h2 class="text-white mt-2">Welcome</h2>
 
 <div class="search">
-    <form action="">
+    <form action="" method="Post">
 <input type="text" class="search_bt" name="q" placeholder="Search">
+@csrf
 
 <button type="submit" class="btn btn-primary">Search</button>
     </form>

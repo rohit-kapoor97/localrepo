@@ -59,18 +59,21 @@ width:200px;
     border-radius:10px;
     border:none;
 }
+h3{
+    margin:0px 35px;
+}
  </style>
 </head>
 <body>
 @include('layouts.header')
-    <div class="drop_main">
-       <button class="mt-3 box"><a href="">Add Company</a></button> 
-       <button class="mt-3 box"><a href="">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="">View Coustmer</a></button>
-        <button class="mt-3 box"><a href="">Payment</a></button>
-        <button class="mt-3 box"><a href="">Coustmer Details</a></button>
+<div class="drop_main">
+        <h3>dashboard</h3>
+       <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
+       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
+        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
+        <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
+        <button class="mt-3 box"><a href="{{route('view.add')}}">Coustmer Details</a></button>
     </div>
-    
     <div class="main">
     <h1 class="text-success">hello</h1>
     <form action="{{route('edit.coust')}}" Method="Post">
