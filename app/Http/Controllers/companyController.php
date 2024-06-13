@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\CompanyAccount;
-// use App\Models\CompanyDetail;
+use App\Models\CompanyDetail;
 use App\services\companyDetailservice;
 use App\Models\companyUser;
+use Illuminate\View\View;
+
 
 class companyController extends Controller
 {
@@ -28,25 +30,14 @@ public function company(request $req){
         return view('addcomp');
     }
 
-protected $companyDetailService;
-public function __construct(CompanyDetail $companyDetailservice){
-  return $this->CompanyDetail=$companyDetailservice;
+protected $Service;
+public function __construct(companyDetailservice $Service){
+  return $this->service=$service;
 }
 
 
   public function create(request $req){
-        $validata=$req->validate([
-            "compname" => 'required',
-            "coustname" => 'required',
-            "coustnum" => 'required',
-        ]);
-
-        $user=$this->CompanyDetail->createUser(
-             $validata ['compname'],
-             $validata ['coustname'],
-             $validata ['coustnum'],
-          
-           );
+    $this->service->doSomething();
 
            return redirect()->route('view.add');
   }

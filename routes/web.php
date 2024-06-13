@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\companyController;
 use Illuminate\Support\Facades\Route;
+use App\Providers\AppServiceProvider;
+
 
 Route::get('/', function () {
     return view('welcome');

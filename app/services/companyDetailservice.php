@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\CompanyDetail;
 
 class companyDetailservice{
+    
     public function creatUser($name, $comp, $contact){
 
         $user = new CompanyDetail();
