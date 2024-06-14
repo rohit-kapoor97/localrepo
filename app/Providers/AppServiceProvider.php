@@ -4,14 +4,10 @@ namespace App\Providers;
 
 use App\Model\companyDetail;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\View;
 use App\Services\companyDetailservice;
+use Illuminate\Contracts\Foundation\Application;
 
-use Illuminate\Support\Facades\App;
  
-
-
-
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-      $service=App::make(companyDetailservice::class);
+      $this->app->bind(companyDetailservice::class, function(Application $app){
+        return new companyDetailservice;
+      });
     }
 
     /**
@@ -28,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+     
+}
+  
+
+
 
 }
-}
+

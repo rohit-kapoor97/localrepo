@@ -6,19 +6,29 @@ use App\Models\CompanyDetail;
 
 class companyDetailservice{
     
-    public function creatUser($name, $comp, $contact){
+    
 
-        $user = new CompanyDetail();
-        $user -> name =$name;
-        $user ->comp_name= $comp;
-        $user -> contact =$contact;
+        protected $name=[];
+        protected $company=[];
+        protected $contact=[];
 
-        $user ->save();
-        return $user;
+        public function __construct( $name, $company, $contact){
+          return $this->name=$name;
+          return $this->company=$company;
+          return $this->contact=$contact;
+        }
+
+
+        public function getUsers()
+        {
+            return $this->name->getAllUsers();
+            return $this->company->getAllUsers();
+            return $this->contact->getAllUsers();
+        }
 
 
     }
-}
+
 
 
 

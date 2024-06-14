@@ -7,9 +7,19 @@ use Illuminate\Support\Facades\Route;
 use App\Providers\AppServiceProvider;
 
 
+
+ 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Route::get('/view', function (Request $request) {
+//         return view('addcust');
+// });
+
+dd($app->make(new companyDetailservice));
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,7 +35,7 @@ Route::Post('/comp', [companyController::class, 'company'])->name('comp.add');
 Route::get('/viewcomp', [companycontroller::class, 'showcomp'])->name('comp.view');
 // add coustmer
 Route::Post('/add',[companycontroller::class, 'create'])->name('add.coust');
-Route::get('/addcoust',[companycontroller::class, 'comp'])->name('view.coust');
+Route::get('/addcoust',[companycontroller::class, 'comp'])->name('view.coust')->$app()->make(new companyDetailservice);
 // view customer
 Route::get('/view', [companycontroller::class, 'view'])->name('view.add');
 Route::get('/cust', [companycontroller::class, 'custview'])->name('cust.view');

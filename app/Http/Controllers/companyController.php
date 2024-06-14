@@ -8,9 +8,8 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\CompanyAccount;
 use App\Models\CompanyDetail;
-use App\services\companyDetailservice;
+use App\provider\AppServiceProvider;
 use App\Models\companyUser;
-use Illuminate\View\View;
 
 
 class companyController extends Controller
@@ -30,16 +29,16 @@ public function company(request $req){
         return view('addcomp');
     }
 
-protected $Service;
-public function __construct(companyDetailservice $Service){
-  return $this->service=$service;
-}
 
+public function create(request $req){
+ 
 
-  public function create(request $req){
-    $this->service->doSomething();
+    $user = new companyDetailservice();
+    $user -> name =$name;
+    $user ->comp_name= $comp;
+    $user -> contact =$contact;
 
-           return redirect()->route('view.add');
+       return redirect()->route('view.add');
   }
 
   public function comp(){
