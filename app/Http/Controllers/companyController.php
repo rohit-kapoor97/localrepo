@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\CompanyAccount;
 use App\Models\CompanyDetail;
-use App\provider\AppServiceProvider;
+use App\Contracts\compDetail;
 use App\Models\companyUser;
 
 
@@ -29,14 +29,17 @@ public function company(request $req){
         return view('addcomp');
     }
 
-
-public function create(request $req){
+protected $comp;
+public function __construct(compDetail $comp){
+  $this->comp= $comp;
+}
+public function detail(request $req){
  
-
-    $user = new companyDetailservice();
-    $user -> name =$name;
-    $user ->comp_name= $comp;
-    $user -> contact =$contact;
+return $this->comp->detail();
+    // $user = new companyDetailservice();
+    // $user -> name =$name;
+    // $user ->comp_name= $comp;
+    // $user -> contact =$contact;
 
        return redirect()->route('view.add');
   }
