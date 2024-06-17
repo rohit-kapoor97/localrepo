@@ -4,7 +4,7 @@ namespace App\Services;
 use App\Contracts\compDetail;
 use App\Models\CompanyDetail;
 
-class companyDetailservice implements compDetail{
+class companyDetailservice implements detailCompany{
     
     
 
@@ -12,19 +12,26 @@ class companyDetailservice implements compDetail{
         protected $company=[];
         protected $contact=[];
 
-        public function detail( $name, $company, $contact){
+        public function __construct($name, $company, $contact){
           return $this->name=$name;
           return $this->company=$company;
           return $this->contact=$contact;
         }
 
 
-        // public function getUsers()
-        // {
-        //     return $this->name->getAllUsers();
-        //     return $this->company->getAllUsers();
-        //     return $this->contact->getAllUsers();
-        // }
+        public function creatuser($name, $company, $contact){
+          return $this->name=$name;
+          return $this->company=$company;
+          return $this->contact=$contact;
+
+        }
+
+        public function detail()
+        {
+            return $this->name->all();
+            return $this->company->all();
+            return $this->contact->all();
+        }
 
 
     }

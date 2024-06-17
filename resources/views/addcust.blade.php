@@ -89,7 +89,7 @@ select:hover{
     
     <div class="main">
     <h1 class="text-success">hello</h1>
-    <form action="{{route('add.coust')}}" Method="Post">
+    <form action="{{route('add.user')}}" Method="Post">
         @csrf
 
     <select class="mt-3 form-select form-select-lg" aria-label=".form-select-lg example"  name="compname"> 

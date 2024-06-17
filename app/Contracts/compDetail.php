@@ -2,8 +2,9 @@
 namespace App\Contracts;
 
 
-interface companyDetail{
+interface detailCompany{
   public function detail();
+  public function creatuser();
 }
 
 

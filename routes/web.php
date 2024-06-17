@@ -18,7 +18,7 @@ Route::get('/', function () {
 //         return view('addcust');
 // });
 
-dd($app->make(new companyDetailservice));
+
 
 
 Route::get('/dashboard', function () {
@@ -31,13 +31,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 // add company
+Route::post('/useradd',[companycontroller::class, 'detail'])->name('add.user');
+Route::get('/viewuser', [companyController::class,'getdetail'])->name('user.all');
 Route::Post('/comp', [companyController::class, 'company'])->name('comp.add');
 Route::get('/viewcomp', [companycontroller::class, 'showcomp'])->name('comp.view');
 // add coustmer
 Route::Post('/add',[companycontroller::class, 'create'])->name('add.coust');
-Route::get('/addcoust',[companycontroller::class, 'comp'])->name('view.coust')->$app()->make(new companyDetailservice);
+Route::get('/addcoust',[companycontroller::class, 'comp'])->name('view.coust');
 // view customer
-Route::get('/view', [companycontroller::class, 'view'])->name('view.add');
+// Route::get('/view', [companycontroller::class, 'view'])->name('view.add');
 Route::get('/cust', [companycontroller::class, 'custview'])->name('cust.view');
 Route::get('/comp', [companycontroller::class, 'compview'])->name('view.comp');
 // edit customer
