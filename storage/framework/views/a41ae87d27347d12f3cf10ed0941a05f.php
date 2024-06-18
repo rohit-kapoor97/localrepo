@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
     <title>Document</title>
     <style>
         body{
@@ -75,35 +75,35 @@ select:hover{
  </style>
 </head>
 <body>
-    @include('layouts.header')
+    <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="drop_main">
         <h3>dashboard</h3>
-       <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
-       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
-        <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
-        <button class="mt-3 box"><a href="{{route('user.all')}}">Coustmer Details</a></button>
+       <button class="mt-3 box"><a href="<?php echo e(route('comp.view')); ?>">Add Company</a></button> 
+       <button class="mt-3 box"><a href="<?php echo e(route('view.coust')); ?>">Add Coustmer</a></button> 
+        <button class="mt-3 box"><a href="<?php echo e(route('cust.view')); ?>">View Coustmer</a></button>
+        <button class="mt-3 box"><a href="<?php echo e(route('show.amount')); ?>">Payment</a></button>
+        <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Coustmer Details</a></button>
     </div>
     
     
     
     <div class="main">
     <h1 class="text-success">hello</h1>
-    <form action="{{route('add.user')}}" Method="Post">
-        @csrf
+    <form action="<?php echo e(route('add.user')); ?>" Method="Post">
+        <?php echo csrf_field(); ?>
 
     <select class="mt-3 form-select form-select-lg" aria-label=".form-select-lg example"  name="compname"> 
     <option selected>Select Company</option>
-    @foreach($user as $comp)
+    <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-    <option>{{$comp -> companyname}}</option>
+    <option><?php echo e($comp -> companyname); ?></option>
 
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
  </select>
     <input type="text"  class="mt-3" name="coustname" placeholder="Name">
     <input type="text" class="mt-3"  name="coustnum" placeholder="Mobile No.">
-    <!-- <input type="hidden"  value="{{Auth::id()}}" name="userid"> -->
+    <!-- <input type="hidden"  value="<?php echo e(Auth::id()); ?>" name="userid"> -->
     <div class="bt">
     <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
     <button type="button" class="btn btn-primary mt-3">Cancel</button>
@@ -115,4 +115,4 @@ select:hover{
 
     
 </body>
-</html>
+</html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/addcust.blade.php ENDPATH**/ ?>

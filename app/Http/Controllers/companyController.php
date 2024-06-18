@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\CompanyAccount;
-use App\Models\companyDetailservice;
-use App\Contracts\compDetail;
+use App\Services\companyDetailservice;
+use App\Contracts\companyInterface;
 use App\Models\companyUser;
 
 
@@ -30,27 +30,35 @@ public function company(request $req){
     }
 
 protected $service;
-public function __construct(detailCompany $service){
-  $this->service= $service;
+public function __construct(companyDetailservice $service){
+  $this->service=$service;
 }
 
 
 public function store(request $req){
- 
-$user=$this->service->creatuser($req->all());
+ $data=[
+  
+  "comp_name"=>$req->compname,
+  "name"=>$req->coustname,
+  "contact"=>$req->coustnum,
+
+ ];
+
+
+$this->service->creatuser($data);
    
-return redirect()->route('view.add');
+return redirect()->route('user.all');
   }
 
 
-  public function getdetail(request $val){
+  public function getdetail(){
     $users=$this->service->detail();
-    return view('addview', compact('users', $users));
+    return view('addview',compact('users'));
   }
 
   public function comp(){
-    $comp=companyDetail::get();
-    return view('addcust', compact('comp'));
+    $user=companyUser::get();
+    return view('addcust', compact('user'));
   }
 
   public function compview(){
@@ -75,7 +83,7 @@ return redirect()->route('view.add');
         'name' => $edit -> coustname,
         'contact' => $edit -> coustnum,
     ]);
-    return redirect()->route('view.add');
+   
   }
   public function editview($id){
     $users=companyDetail::find($id);

@@ -10,13 +10,12 @@ class CompanyDetail extends Model
 {
 
     protected $fillable=[
-        'name',
         'comp_name',
+        'name',
         'contact',
-        'user_id',
-       
-   ];
-   public $timeStamp= false;
+       ];
+
+   public $timeStamp=false;
 
    public function getAccountDetail(){
     return $this->hasMany(CompanyAccount::class, 'cust_id', 'id');

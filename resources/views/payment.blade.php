@@ -72,7 +72,7 @@ h3{
        <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
         <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
         <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
-        <button class="mt-3 box"><a href="{{route('view.add')}}">Coustmer Details</a></button>
+        <button class="mt-3 box"><a href="{{route('user.all')}}">Coustmer Details</a></button>
     </div>
    
     <div class="main mt-5">

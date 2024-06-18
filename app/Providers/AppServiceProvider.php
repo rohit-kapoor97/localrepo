@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Providers;
-use App\Contracts\compDetail;
+use App\Contracts\CompanyInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Services\companyDetailservice;
+use Illuminate\View\View;
+use App\View\Components\CompanyLayout;
 
 
  
@@ -15,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-      $this->app->bind(detailCompany::class, companyDetailservice::class);
+      $this->app->singleton(CompanyInterface::class, function ($app) {
+      return new CompanyDetailService($name, $company, $contact, $userid);
+  });
     }
 
     /**
@@ -23,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+    
      
 }
   

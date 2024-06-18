@@ -1,36 +1,23 @@
 <?php
 
 namespace App\Services;
-use App\Contracts\compDetail;
+use App\Contracts\companyInterface;
 use App\Models\CompanyDetail;
 
-class companyDetailservice implements detailCompany{
+class companyDetailservice implements CompanyInterface{
     
-    
-
-        protected $name=[];
-        protected $company=[];
-        protected $contact=[];
-
-        public function __construct($name, $company, $contact){
-          return $this->name=$name;
-          return $this->company=$company;
-          return $this->contact=$contact;
-        }
-
-
-        public function creatuser($name, $company, $contact){
-          return $this->name=$name;
-          return $this->company=$company;
-          return $this->contact=$contact;
-
-        }
+       protected $company;
+       protected $name;
+       protected $contact;
+       
+       public function creatuser(array $data){
+        return CompanyDetail::create($data);
+          }
 
         public function detail()
         {
-            return $this->name->all();
-            return $this->company->all();
-            return $this->contact->all();
+            return companyDetail::all();
+
         }
 
 

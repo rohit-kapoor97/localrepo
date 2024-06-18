@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\companyController;
 use Illuminate\Support\Facades\Route;
-use App\Providers\AppServiceProvider;
+use App\Services\companyDetailservice;
 
 
 
@@ -13,10 +13,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-// Route::get('/view', function (Request $request) {
-//         return view('addcust');
-// });
 
 
 
@@ -31,15 +27,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 // add company
-Route::post('/useradd',[companycontroller::class, 'detail'])->name('add.user');
-Route::get('/viewuser', [companyController::class,'getdetail'])->name('user.all');
 Route::Post('/comp', [companyController::class, 'company'])->name('comp.add');
 Route::get('/viewcomp', [companycontroller::class, 'showcomp'])->name('comp.view');
 // add coustmer
-Route::Post('/add',[companycontroller::class, 'create'])->name('add.coust');
+Route::Post('/add',[companycontroller::class, 'store'])->name('add.user');
 Route::get('/addcoust',[companycontroller::class, 'comp'])->name('view.coust');
 // view customer
-// Route::get('/view', [companycontroller::class, 'view'])->name('view.add');
+Route::get('/viewuser', [companyController::class,'getdetail'])->name('user.all');
 Route::get('/cust', [companycontroller::class, 'custview'])->name('cust.view');
 Route::get('/comp', [companycontroller::class, 'compview'])->name('view.comp');
 // edit customer

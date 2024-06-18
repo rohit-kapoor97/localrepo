@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
     <title>Document</title>
     <style>
         body{
@@ -72,14 +72,14 @@ h3{
  </style>
 </head>
 <body>
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="drop_main">
         <h3>dashboard</h3>
-       <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
-       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
-        <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
-        <button class="mt-3 box"><a href="{{route('user.all')}}">Coustmer Details</a></button>
+       <button class="mt-3 box"><a href="<?php echo e(route('comp.view')); ?>">Add Company</a></button> 
+       <button class="mt-3 box"><a href="<?php echo e(route('view.coust')); ?>">Add Coustmer</a></button> 
+        <button class="mt-3 box"><a href="<?php echo e(route('cust.view')); ?>">View Coustmer</a></button>
+        <button class="mt-3 box"><a href="<?php echo e(route('show.amount')); ?>">Payment</a></button>
+        <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Coustmer Details</a></button>
     </div>
 
     
@@ -87,8 +87,8 @@ h3{
 
     <div class="main">
     <h1 class="text-success">hello</h1>
-    <form action="{{route('comp.add')}}" Method="Post">
-        @csrf
+    <form action="<?php echo e(route('comp.add')); ?>" Method="Post">
+        <?php echo csrf_field(); ?>
 
     <input type="text"  class="mt-3"  name="namecompany" placeholder="Company Name">
 
@@ -108,7 +108,7 @@ h3{
 <script>
 $(document).ready(function(){
   $("#viewbt").click(function(){
-    $.ajax({url: "{{route('comp.view')}}", success: function(result){
+    $.ajax({url: "<?php echo e(route('comp.view')); ?>", success: function(result){
       $("#showbt").html(result);
     }});
   });
@@ -116,4 +116,4 @@ $(document).ready(function(){
 </script>
 
 </body>
-</html>
+</html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/addcomp.blade.php ENDPATH**/ ?>
