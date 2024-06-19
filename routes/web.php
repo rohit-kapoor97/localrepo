@@ -37,8 +37,8 @@ Route::get('/viewuser', [companyController::class,'getdetail'])->name('user.all'
 Route::get('/cust', [companycontroller::class, 'custview'])->name('cust.view');
 Route::get('/comp', [companycontroller::class, 'compview'])->name('view.comp');
 // edit customer
-Route::Post('/editcoust',[companycontroller::class, 'coustmeredit'])->name('edit.coust');
-Route::get('/edit/{id}', [companyController::class, 'editview'])->name('view.edit');
+Route::Post('/editcoust/{id}',[companycontroller::class, 'coustmeredit'])->name('edit.coust');
+Route::get('/edit/{id}',[companyController::class, 'editview'])->name('view.edit');
 // customer payment
 Route::get('/amount', [companycontroller::class, 'showamount'])->name('show.amount');
 Route::Post('/addamount', [companycontroller::class, 'amountshow'])->name('amount.show');

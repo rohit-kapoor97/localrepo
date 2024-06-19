@@ -77,28 +77,25 @@ return redirect()->route('user.all');
     return view('viewcust')->with('users', $users);
   }
 
-  public function coustmeredit(request $edit){
-    companyDetail::where('id', $edit->id)->update([
-
-        'name' => $edit -> coustname,
-        'contact' => $edit -> coustnum,
+  public function coustmeredit(request $request, $id){
+    $this->service->editUser($id, $add=[
+      "name" => $request -> coustname,
+        "contact" => $request -> coustnum,
     ]);
+     return $this->service->editUser($id, $add);
    
   }
   public function editview($id){
-    $users=companyDetail::find($id);
+    $users=$this->service->getUserById($id);
     return view('update')->with('users', $users);
   }
 
   public function showamount(){
-    $users=companyDetail::with('getAccountDetail')->get();
-
-
+    $users=$this->service->payment();
     return view('payment', compact('users'));
 }
 
-
-  public function amountshow(request $req){
+public function amountshow(request $req){
 $req->validate([
     "custamount" => 'required',
 

@@ -19,6 +19,19 @@ class companyDetailservice implements CompanyInterface{
             return companyDetail::all();
 
         }
+         public function getUserById($id){
+          return companyDetail::find($id);
+          }
+
+          public function editUser($id,array $add){
+          companyDetail::find($id)->update($add);
+           return redirect()->route('user.all');
+         }
+
+
+         public function payment(){
+          return companyDetail::with('getAccountDetail')->get();
+         }
 
 
     }

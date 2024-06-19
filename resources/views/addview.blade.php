@@ -76,6 +76,7 @@ h3{
                 <td>{{$user->name}}</td>
                 <td>{{$user->comp_name}}</td>
                 <td>{{$user->contact}}</td>
+                <td><a href="{{route('view.edit',$user->id)}}">Edit</a></td>
             </tr>
             @php $count++; @endphp
             @endforeach
