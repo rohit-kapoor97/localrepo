@@ -31,11 +31,11 @@ public function company(request $req){
     }
 
 protected $service;
-protected $Account;
+protected $account;
 
-public function __construct(companyDetailservice $service, companyAccountservice $Account ){
+public function __construct(companyDetailservice $service, companyAccountservice $account ){
   $this->service=$service;
-  $this->Account=$Account;
+  $this->account=$account;
 }
 
 public function store(request $req){
@@ -77,7 +77,7 @@ return redirect()->route('user.all');
   }
 
   public function custview(){
-    $users=companyDetail::get();
+    $users=$this->service->detail();
     return view('viewcust')->with('users', $users);
   }
 
@@ -119,25 +119,38 @@ $data=[
     'cust_id' => $req -> userid,
   
   ];
-return $this->Account->creatuser($data);
+return $this->account->creatuser($data);
   }
 
+  public function listitem(request $req){
+    $users=$this->account->detail();
+    return view('itemlist', compact('users'));
+  }
+
+
   public function viewamount($id){
-    $user=$this->Account->getUserById($id);
+    $user=$this->account->getUserById($id);
     return view('addpay')->with('user', $user);
   }
 
-  public function listitem(request $req, $id){
-    $users=$this->Account->getDetailById($id);
-    return view('itemlist', compact('users'));
+
+  public function search(request $req){
+ 
+    $view=$req->q;
+    
+    
+    $users=$this->service->search($view);
+    // dd($users);
+   
+    return view('search', compact('users'));
+
 }
 
-// public function search(request $req){
-//   $slug=str::slug('name', '-')->companyDetail::where('name', 'likes' ,'%'.$req->name.'%')->paginate(5);
-
-//   return view('search', compact('slug'));
-
-// }
+public function delete($id){
+  
+  $this->service->getDetailById($id);
+  return redirect()->route('user.all');
+}
 
 
 }

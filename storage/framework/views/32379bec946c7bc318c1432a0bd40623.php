@@ -91,6 +91,7 @@ h3{
                <?php $count=1; ?>
              <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                <tr>
+           
                 <td><?php echo e($count); ?></td>
                 <td><?php echo e($user -> item); ?></td>
                 <td><?php echo e($user -> amount); ?></td>

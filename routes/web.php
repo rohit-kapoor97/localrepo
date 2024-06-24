@@ -6,14 +6,13 @@ use App\Http\Controllers\companyController;
 use Illuminate\Support\Facades\Route;
 use App\Services\companyDetailservice;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Middleware\usermiddleware;
 
 
 
 
  
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 
@@ -24,10 +23,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/',[companyController::class, 'getdetail']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
 // add company
 Route::Post('/comp', [companyController::class, 'company'])->name('comp.add');
 Route::get('/viewcomp', [companycontroller::class, 'showcomp'])->name('comp.view');
@@ -46,17 +46,20 @@ Route::middleware('can:isadmin')->group(function (){
 Route::get('/amount', [companycontroller::class, 'showamount'])->name('show.amount');
 Route::Post('/addamount', [companycontroller::class, 'amountshow'])->name('amount.show');
 Route::get('/show/{id}', [companycontroller::class, 'viewamount'])->name('amount.view');
+});
 // view Item
 Route::get('/viewlist/{id}', [companycontroller::class, 'listitem'])->name('item.view');
-});
+
 
 Route::get('/sessionend',[companycontroller::class, 'destroy'])->name('delete.user');
 // search
-// Route::Post('/search', [companycontroller::class, 'search'])->name('search.view');
+Route::Post('/search', [companycontroller::class, 'search'])->name('search.view');
+
+Route::Post('/delete/{id}', [companycontroller::class, 'delete'])->name('user.delete');
 
 
 
-
+});
 
 
 

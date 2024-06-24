@@ -91,6 +91,7 @@ h3{
                @php $count=1; @endphp
              @foreach($users as $user)
                <tr>
+           
                 <td>{{$count}}</td>
                 <td>{{$user -> item}}</td>
                 <td>{{$user -> amount}}</td>

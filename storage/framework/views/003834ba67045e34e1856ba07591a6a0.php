@@ -11,14 +11,14 @@
             margin:auto;
             padding:10px 20px;
             display:flex;
-            justify-content:space-between;
+            justify-content:space-around;
             background-color:#301934;
            
         }
         .search{
           position:absolute;
           top:15px;
-          left:1000px;
+          left:800px;
        
         }
         .search_bt{
@@ -37,6 +37,19 @@
             border:none;
             background-color:white;
          }
+         .log-btn{
+            position:absolute;
+          top:15px;
+          left:1200px;
+          }
+
+          .log-text{
+               color:white;
+          }
+          .log-text:hover{
+            text-decoration:none;
+            color:black;
+          }
 
 
     </style>
@@ -48,15 +61,15 @@
     <h2 class="text-white mt-2">Welcome</h2>
 
 <div class="search">
-    <form action="" method="Post">
+    <form action="<?php echo e(route('search.view')); ?>" method="Post">
 <input type="text" class="search_bt" name="q" placeholder="Search">
 <?php echo csrf_field(); ?>
 
-<button type="submit" class="btn btn-primary">Search</button>
+<button type="submit" class="btn btn-primary" value="submit">Search</button>
     </form>
     </div>
     
-    <button type="button" class="btn btn-danger"><a href="<?php echo e(route('delete.user')); ?>">Logout</a></button>
+    <button type="button" class="btn btn-danger log-btn"><a href="<?php echo e(route('delete.user')); ?>" class="log-text">Logout</a></button>
    
 
 </div>

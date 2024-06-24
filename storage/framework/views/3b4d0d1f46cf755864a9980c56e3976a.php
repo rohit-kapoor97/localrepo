@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <!-- <div class="shrink-0 flex items-center">
                     <a href="<?php echo e(route('dashboard')); ?>">
                         <?php if (isset($component)) { $__componentOriginal8892e718f3d0d7a916180885c6f012e7 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal8892e718f3d0d7a916180885c6f012e7 = $attributes; } ?>
@@ -27,7 +27,7 @@
 <?php unset($__componentOriginal8892e718f3d0d7a916180885c6f012e7); ?>
 <?php endif; ?>
                     </a>
-                </div>
+                </div> -->
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -133,6 +133,7 @@
 <?php unset($__componentOriginal68cb1971a2b92c9735f83359058f7108); ?>
 <?php endif; ?>
                         </form>
+                        <a href="<?php echo e(route('user.all')); ?>" class="font-medium text-sm text-gray-500">Customer Detail</a>
                      <?php $__env->endSlot(); ?>
                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

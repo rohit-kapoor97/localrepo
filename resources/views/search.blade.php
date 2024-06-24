@@ -57,7 +57,7 @@ h3{
     </div>
     <div class="main mt-5">
 
-    <h1 class="text-primary">Welcome To New Canteen</h1>
+  
         <table class="table table-striped table-Light mt-3">
             <tbody >
                 <thead class="table-dark">
@@ -70,7 +70,7 @@ h3{
                </tr>
                </thead>
                @php $count=1; @endphp
-             @foreach($slug as $user)
+             @foreach($users as $user)
                <tr>
               
                 <td>{{$count}}</td>

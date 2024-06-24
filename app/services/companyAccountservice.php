@@ -14,23 +14,29 @@ class companyAccountservice implements companyInterface{
 
     }
    public function detail(){
-        return companyAccount::get();
+    return companyAccount::get();
     }
+    
     public function getDetailById($id){
-        return companyAccount::find($id)->first();
+        return companyDetail::with('getAccountDetail')->where('id','cust_id')->get();
     }
 
     public function getUserById($id){
         
         $user=companyDetail::with('getAccountDetail')->find($id);
+        return $user;
         
 
     }
     public function editUser($id, array $add){
-        return ;
+        return ; 
     }
     public function payment(){
-        return;
+        return ;
+    }
+    public function search($view){
+        return; 
+
     }
 
     

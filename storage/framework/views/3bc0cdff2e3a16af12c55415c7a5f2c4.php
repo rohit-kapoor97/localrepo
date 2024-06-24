@@ -6,42 +6,20 @@
     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
     <title>Document</title>
     <style>
-        body{
+                body{
             margin:0px;
             padding:0px;
             box-sizing:border-box;
         }
 .main{
-    width:400px;
-    margin: 100px auto;
-    padding:10px 50px;
-    background-color:white;
-    box-shadow:0px 5px 10px rgba(0,0,0,0.5); 
-    justify-content:center;
-}
-
-input{
     width:100%;
-    /* line-height:60px; */
-    padding:15px;
-    border-radius:10px;
-    outline:none;
-}
-input:hover{
-    outline:2px solid blue;
-}
-input::placeholder{
-    padding:5px 8px ;
-
-}
-.bt{
-    width:200px;
+    max-width:900px;
     margin:auto;
-    padding:5px 8px;
-    display:flex;
-    gap:20px;
+    padding:0px 40px;
+    
+    /* justify-content:center; */
 }
-.drop_main{
+        .drop_main{
     width:300px;
     height:100%;
     background-color:white;
@@ -62,7 +40,7 @@ width:200px;
 h3{
     margin:0px 35px;
 }
- </style>
+    </style>
 </head>
 <body>
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -74,26 +52,33 @@ h3{
         <button class="mt-3 box"><a href="<?php echo e(route('show.amount')); ?>">Payment</a></button>
         <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Coustmer Details</a></button>
     </div>
-    <div class="main">
-    <h1 class="text-success">hello</h1>
-    <form action="<?php echo e(route('edit.coust',$users->id)); ?>" Method="Post">
-        <?php echo csrf_field(); ?>
-
-        <input type="hidden" value="<?php echo e($users->id); ?>">
-
-    <input type="text"  class="mt-3" value="<?php echo e($users-> name); ?>" name="coustname" placeholder="Name">
-    <input type="text" class="mt-3" value="<?php echo e($users-> contact); ?>"  name="coustnum" placeholder="Mobile No.">
-
-    <div class="bt">
-    <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
-    <button type="button" class="btn btn-primary mt-3">Cancel</button>
-    <button type="submit" class="btn btn-primary mt-3"></button>
-   
+    <div class="main mt-5">
+        <table class="table table-striped table-Light">
+            <tbody >
+                <thead class="table-dark">
+                <tr>
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>Item</th>
+             
+               </tr>
+               </thead>
+               <?php $count=1; ?>
+             <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr>
+               
+                <td><?php echo e($count); ?></td>
+                <td><?php echo e($user-> name); ?></td>
+                <td><a href="<?php echo e(route('item.view', $user->id)); ?>" class="text-success">View-Items</a></td>
+                
+            </tr>
+               <?php $count++ ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </tbody>
+    </table>
+        
     </div>
-    </form>
-    </div>
-
 
     
 </body>
-</html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/update.blade.php ENDPATH**/ ?>
+</html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/viewcust.blade.php ENDPATH**/ ?>
