@@ -62,21 +62,11 @@ width:200px;
 h3{
     margin:0px 35px;
 }
-select{
-    width:100%;
-    /* line-height:60px; */
-    padding:15px;
-    border-radius:10px;
-    border:2px solid black;
-}
-select:hover{
-    outline:2px solid blue;
-}
  </style>
 </head>
 <body>
-    <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <div class="drop_main">
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div class="drop_main">
         <h3>dashboard</h3>
        <button class="mt-3 box"><a href="<?php echo e(route('comp.view')); ?>">Add Company</a></button> 
        <button class="mt-3 box"><a href="<?php echo e(route('view.coust')); ?>">Add Coustmer</a></button> 
@@ -85,28 +75,20 @@ select:hover{
         <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Coustmer Details</a></button>
     </div>
     
-    
-    
     <div class="main">
     <h1 class="text-success">hello</h1>
-    <form action="<?php echo e(route('add.user')); ?>" Method="Post">
+    <form action="<?php echo e(route('amount.show')); ?>" Method="Post">
         <?php echo csrf_field(); ?>
 
-    <select class="mt-3 form-select form-select-lg" aria-label=".form-select-lg example"  name="compname"> 
-    <option selected>Select Company</option>
-    <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <input type="hidden" value="<?php echo e($user->id); ?>" name="userid">
+        <input type="text" class="mt-3"  name="coustitem" placeholder="Add Item">
 
-    <option><?php echo e($comp -> companyname); ?></option>
+    <input type="text"  class="mt-3" name="custamount" placeholder="Add Amount">
+    
 
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
- </select>
-    <input type="text"  class="mt-3" name="coustname" placeholder="Name">
-    <input type="text" class="mt-3"  name="coustnum" placeholder="Mobile No.">
-    <input type="hidden"  value="<?php echo e(Auth::id()); ?>" name="userid">
     <div class="bt">
-    <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
-    <button type="button" class="btn btn-primary mt-3">Cancel</button>
+    <button type="submit" class="btn btn-primary mt-3" name="addtype" value="Plus">Add</button>
+    <button type="submit" class="btn btn-primary mt-3" name="addtype" value="Minus">Pay</button>
    
     </div>
     </form>
@@ -115,4 +97,4 @@ select:hover{
 
     
 </body>
-</html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/addcust.blade.php ENDPATH**/ ?>
+</html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/addpay.blade.php ENDPATH**/ ?>

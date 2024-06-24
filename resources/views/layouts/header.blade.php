@@ -55,6 +55,10 @@
 <button type="submit" class="btn btn-primary">Search</button>
     </form>
     </div>
+    
+    <button type="button" class="btn btn-danger"><a href="{{route('delete.user')}}">Logout</a></button>
+   
+
 </div>
 
     </header>

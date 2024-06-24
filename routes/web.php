@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\companyController;
 use Illuminate\Support\Facades\Route;
 use App\Services\companyDetailservice;
+use Illuminate\Support\Facades\Gate;
+
 
 
 
@@ -40,11 +42,15 @@ Route::get('/comp', [companycontroller::class, 'compview'])->name('view.comp');
 Route::Post('/editcoust/{id}',[companycontroller::class, 'coustmeredit'])->name('edit.coust');
 Route::get('/edit/{id}',[companyController::class, 'editview'])->name('view.edit');
 // customer payment
+Route::middleware('can:isadmin')->group(function (){
 Route::get('/amount', [companycontroller::class, 'showamount'])->name('show.amount');
 Route::Post('/addamount', [companycontroller::class, 'amountshow'])->name('amount.show');
 Route::get('/show/{id}', [companycontroller::class, 'viewamount'])->name('amount.view');
 // view Item
 Route::get('/viewlist/{id}', [companycontroller::class, 'listitem'])->name('item.view');
+});
+
+Route::get('/sessionend',[companycontroller::class, 'destroy'])->name('delete.user');
 // search
 // Route::Post('/search', [companycontroller::class, 'search'])->name('search.view');
 

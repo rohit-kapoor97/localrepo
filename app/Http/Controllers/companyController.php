@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\User;
-use App\Models\CompanyAccount;
 use App\Services\companyDetailservice;
 use App\Contracts\companyInterface;
+use App\Services\companyAccountservice;
 use App\Models\companyUser;
+use Illuminate\Support\Facades\Auth;
 
 
 class companyController extends Controller
@@ -30,10 +31,12 @@ public function company(request $req){
     }
 
 protected $service;
-public function __construct(companyDetailservice $service){
-  $this->service=$service;
-}
+protected $Account;
 
+public function __construct(companyDetailservice $service, companyAccountservice $Account ){
+  $this->service=$service;
+  $this->Account=$Account;
+}
 
 public function store(request $req){
  $data=[
@@ -41,6 +44,7 @@ public function store(request $req){
   "comp_name"=>$req->compname,
   "name"=>$req->coustname,
   "contact"=>$req->coustnum,
+  "user_id"=>$req->userid,
 
  ];
 
@@ -94,31 +98,37 @@ return redirect()->route('user.all');
     $users=$this->service->payment();
     return view('payment', compact('users'));
 }
+public function destroy(){
+  Auth::logout();
+  return redirect()->route('login');
+}
+
+// companyAccount
+
+
 
 public function amountshow(request $req){
 $req->validate([
     "custamount" => 'required',
 
 ]);
-CompanyAccount::where('cust_id', $req->id)->create([
+$data=[
     'amount' => $req ->custamount,
     'item' => $req -> coustitem,
     'type' => $req -> addtype,
     'cust_id' => $req -> userid,
   
-]);
-return redirect()->route('show.amount');
+  ];
+return $this->Account->creatuser($data);
   }
 
   public function viewamount($id){
-    $user=companyDetail::find($id);
+    $user=$this->Account->getUserById($id);
     return view('addpay')->with('user', $user);
   }
 
-  public function listitem(request $req){
-    $users=companyAccount::where('cust_id', $req->id)->get();
-
-
+  public function listitem(request $req, $id){
+    $users=$this->Account->getDetailById($id);
     return view('itemlist', compact('users'));
 }
 

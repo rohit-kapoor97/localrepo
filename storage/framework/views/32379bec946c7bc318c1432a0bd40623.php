@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
     <title>Document</title>
     <style>
         body{
@@ -68,14 +68,14 @@ h3{
  </style>
 </head>
 <body>
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="drop_main">
         <h3>dashboard</h3>
-       <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
-       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
-        <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
-        <button class="mt-3 box"><a href="{{route('user.all')}}">Coustmer Details</a></button>
+       <button class="mt-3 box"><a href="<?php echo e(route('comp.view')); ?>">Add Company</a></button> 
+       <button class="mt-3 box"><a href="<?php echo e(route('view.coust')); ?>">Add Coustmer</a></button> 
+        <button class="mt-3 box"><a href="<?php echo e(route('cust.view')); ?>">View Coustmer</a></button>
+        <button class="mt-3 box"><a href="<?php echo e(route('show.amount')); ?>">Payment</a></button>
+        <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Coustmer Details</a></button>
     </div>
     <div class="main mt-5">
         <table class="table table-striped table-Light">
@@ -88,20 +88,20 @@ h3{
                 <th>Payment Status</th>
                </tr>
                </thead>
-               @php $count=1; @endphp
-             @foreach($users as $user)
+               <?php $count=1; ?>
+             <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                <tr>
-                <td>{{$count}}</td>
-                <td>{{$user -> item}}</td>
-                <td>{{$user -> amount}}</td>
-                <td>{{$user -> type}}</td>
+                <td><?php echo e($count); ?></td>
+                <td><?php echo e($user -> item); ?></td>
+                <td><?php echo e($user -> amount); ?></td>
+                <td><?php echo e($user -> type); ?></td>
             
             </tr>
-               @php $count++ @endphp
+               <?php $count++ ?>
                <h4 class="mb-3">
-               <a href="{{route('amount.view', $user->cust_id)}}" class="bt-marg">
+               <a href="<?php echo e(route('amount.view', $user->cust_id)); ?>" class="bt-marg">
 
-              @endforeach
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               Payment</a></h4>
         </tbody>
     </table>
@@ -111,4 +111,4 @@ h3{
 
     
 </body>
-</html>
+</html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/itemlist.blade.php ENDPATH**/ ?>

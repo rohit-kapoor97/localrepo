@@ -103,7 +103,7 @@ select:hover{
  </select>
     <input type="text"  class="mt-3" name="coustname" placeholder="Name">
     <input type="text" class="mt-3"  name="coustnum" placeholder="Mobile No.">
-    <!-- <input type="hidden"  value="{{Auth::id()}}" name="userid"> -->
+    <input type="hidden"  value="{{Auth::id()}}" name="userid">
     <div class="bt">
     <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
     <button type="button" class="btn btn-primary mt-3">Cancel</button>
