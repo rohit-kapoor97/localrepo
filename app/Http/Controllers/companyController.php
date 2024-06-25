@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Services\companyDetailservice;
 use App\Contracts\companyInterface;
 use App\Services\companyAccountservice;
-use App\Models\companyUser;
+use App\Services\companyUserservice;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -20,9 +20,12 @@ public function company(request $req){
  $req->validate([
     "namecompany" => 'required',
  ]);
- companyUser::create([
+ $data=[
     'companyname' => $req ->namecompany,
- ]);
+    'comp_id' =>$req->compid,
+ ];
+
+ $this->compuser->creatuser($data);
  return redirect()->route('view.coust');
 
     }
@@ -32,10 +35,12 @@ public function company(request $req){
 
 protected $service;
 protected $account;
+protected $compuser;
 
-public function __construct(companyDetailservice $service, companyAccountservice $account ){
+public function __construct(companyDetailservice $service, companyAccountservice $account, companyUserservice $compuser ){
   $this->service=$service;
   $this->account=$account;
+  $this->compuser=$compuser;
 }
 
 public function store(request $req){
@@ -61,12 +66,12 @@ return redirect()->route('user.all');
   }
 
   public function comp(){
-    $user=companyUser::get();
+    $user=$this->compuser->detail();
     return view('addcust', compact('user'));
   }
 
   public function compview(){
-    $user=companyUser::get();
+    $user=$this->compuser->detail();
     return view('viewcomp', compact('user'));
   }
 
@@ -81,7 +86,7 @@ return redirect()->route('user.all');
     return view('viewcust')->with('users', $users);
   }
 
-  public function coustmeredit(request $request, $id){
+  public function customeredit(request $request, $id){
     $this->service->editUser($id, $add=[
       "name" => $request -> coustname,
         "contact" => $request -> coustnum,
@@ -124,6 +129,7 @@ return $this->account->creatuser($data);
 
   public function listitem(request $req){
     $users=$this->account->detail();
+   
     return view('itemlist', compact('users'));
   }
 
@@ -134,12 +140,9 @@ return $this->account->creatuser($data);
   }
 
 
-  public function search(request $req){
+  public function searchre(request $req){
  
-    $view=$req->q;
-    
-    
-    $users=$this->service->search($view);
+    $users=$this->service->searchuser();
     // dd($users);
    
     return view('search', compact('users'));

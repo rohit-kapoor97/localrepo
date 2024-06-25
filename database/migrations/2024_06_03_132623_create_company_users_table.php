@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('company_users', function (Blueprint $table) {
             $table->id();
             $table->string('companyname');
-            $table->bigInteger('comp_id')->unsigned()->nullable();
-            $table->foreign('comp_id')->references('id')->on('company_details')->onDelete('cascade');
+            $table->bigInteger('comp_id')->unsigned();
+            $table->foreign('comp_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

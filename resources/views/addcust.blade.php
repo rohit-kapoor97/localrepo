@@ -79,10 +79,16 @@ select:hover{
     <div class="drop_main">
         <h3>dashboard</h3>
        <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
-       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
+       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add 
+
+Customer</a></button> 
+        <button class="mt-3 box"><a href="{{route('cust.view')}}">View 
+
+Customer</a></button>
         <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
-        <button class="mt-3 box"><a href="{{route('user.all')}}">Coustmer Details</a></button>
+        <button class="mt-3 box"><a href="{{route('user.all')}}">
+
+Customer Details</a></button>
     </div>
     
     

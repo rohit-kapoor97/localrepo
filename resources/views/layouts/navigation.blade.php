@@ -48,7 +48,8 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
-                        <a href="{{route('user.all')}}" class="font-medium text-sm text-gray-500">Customer Detail</a>
+                        <a href="{{route('user.all')}}" class="font-medium text-sm text-gray-500">
+Customer Detail</a>
                     </x-slot>
                 </x-dropdown>
             </div>

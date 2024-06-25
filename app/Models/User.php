@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\CompanyDetail;
+use App\Models\companyUser;
 
 
 class User extends Authenticatable
@@ -26,6 +27,11 @@ class User extends Authenticatable
     ];
     public function getUser(){
         return  $this->hasMany(CompanyDetail::class, 'user_id', 'id');
+  
+      }
+
+      public function getComp(){
+        return  $this->hasMany(companyUser::class, 'comp_id', 'id');
   
       }
 

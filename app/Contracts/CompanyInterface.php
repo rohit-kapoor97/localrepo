@@ -10,7 +10,7 @@ interface CompanyInterface{
   public function getUserById($id);
   public function editUser($id, array $add);
   public function payment();
-  public function search($view);
+  public function searchuser();
 
 
 }

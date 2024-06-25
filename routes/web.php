@@ -31,17 +31,21 @@ Route::middleware('auth')->group(function () {
 // add company
 Route::Post('/comp', [companyController::class, 'company'])->name('comp.add');
 Route::get('/viewcomp', [companycontroller::class, 'showcomp'])->name('comp.view');
-// add coustmer
+// add 
+
 Route::Post('/add',[companycontroller::class, 'store'])->name('add.user');
 Route::get('/addcoust',[companycontroller::class, 'comp'])->name('view.coust');
-// view customer
+// view 
+
 Route::get('/viewuser', [companyController::class,'getdetail'])->name('user.all');
 Route::get('/cust', [companycontroller::class, 'custview'])->name('cust.view');
 Route::get('/comp', [companycontroller::class, 'compview'])->name('view.comp');
-// edit customer
-Route::Post('/editcoust/{id}',[companycontroller::class, 'coustmeredit'])->name('edit.coust');
+// edit 
+
+Route::Post('/editcoust/{id}',[companycontroller::class, 'customeredit'])->name('edit.coust');
 Route::get('/edit/{id}',[companyController::class, 'editview'])->name('view.edit');
-// customer payment
+// 
+
 Route::middleware('can:isadmin')->group(function (){
 Route::get('/amount', [companycontroller::class, 'showamount'])->name('show.amount');
 Route::Post('/addamount', [companycontroller::class, 'amountshow'])->name('amount.show');
@@ -53,9 +57,9 @@ Route::get('/viewlist/{id}', [companycontroller::class, 'listitem'])->name('item
 
 Route::get('/sessionend',[companycontroller::class, 'destroy'])->name('delete.user');
 // search
-Route::Post('/search', [companycontroller::class, 'search'])->name('search.view');
+Route::get('/usersearch', [companycontroller::class, 'searchre'])->name('search.view');
 
-Route::Post('/delete/{id}', [companycontroller::class, 'delete'])->name('user.delete');
+Route::get('/delete/{id}', [companycontroller::class, 'delete'])->name('user.delete');
 
 
 

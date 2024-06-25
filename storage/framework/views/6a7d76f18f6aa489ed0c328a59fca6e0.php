@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/bootstrap.css')); ?>">
     <title>Document</title>
     <style>
                 body{
@@ -50,10 +50,10 @@ h3{
 <div class="drop_main">
         <h3>dashboard</h3>
        <button class="mt-3 box"><a href="<?php echo e(route('comp.view')); ?>">Add Company</a></button> 
-       <button class="mt-3 box"><a href="<?php echo e(route('view.coust')); ?>">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="<?php echo e(route('cust.view')); ?>">View Coustmer</a></button>
+       <button class="mt-3 box"><a href="<?php echo e(route('view.coust')); ?>">Add Customer</a></button> 
+        <button class="mt-3 box"><a href="<?php echo e(route('cust.view')); ?>">View Customer</a></button>
         <button class="mt-3 box"><a href="<?php echo e(route('show.amount')); ?>">Payment</a></button>
-        <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Coustmer Details</a></button>
+        <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Customer Details</a></button>
     </div>
     <div class="main mt-5">
 
@@ -84,8 +84,16 @@ h3{
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
-        
-    </div>
+    <?php if($users): ?>
+    <?php echo e($users->appends(Request::except('page'))->links()); ?>
+
+    <?php endif; ?>
+
+</div>
+
+
+
+
     
 </body>
 </html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/search.blade.php ENDPATH**/ ?>

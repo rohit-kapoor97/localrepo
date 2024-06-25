@@ -76,10 +76,16 @@ h3{
     <div class="drop_main">
         <h3>dashboard</h3>
        <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
-       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
+       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add 
+
+Customer</a></button> 
+        <button class="mt-3 box"><a href="{{route('cust.view')}}">View 
+
+Customer</a></button>
         <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
-        <button class="mt-3 box"><a href="{{route('user.all')}}">Coustmer Details</a></button>
+        <button class="mt-3 box"><a href="{{route('user.all')}}">
+
+Customer Details</a></button>
     </div>
 
     
@@ -91,6 +97,8 @@ h3{
         @csrf
 
     <input type="text"  class="mt-3"  name="namecompany" placeholder="Company Name">
+    <input type="hidden"  value="{{Auth::id()}}"name="compid">
+
 
     <div class="bt">
     <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>

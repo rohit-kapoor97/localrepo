@@ -40,11 +40,11 @@ class companyDetailservice implements CompanyInterface{
         
          public function getDetailById($id)
          {
-          return companyDetail::delete($id);
+          return companyDetail::find($id)->delete();
  
          }
-         public function search($view){
-          return companyDetail::where('name', 'LIKE', '%".$view."%')->get();
+         public function searchuser(){
+          return companyDetail::where('name', 'LIKE', '%'.request()->input("q").'%')->paginate(5);
          }
 
     }

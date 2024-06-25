@@ -61,7 +61,7 @@
     <h2 class="text-white mt-2">Welcome</h2>
 
 <div class="search">
-    <form action="<?php echo e(route('search.view')); ?>" method="Post">
+    <form action="<?php echo e(route('search.view')); ?>" method="GET">
 <input type="text" class="search_bt" name="q" placeholder="Search">
 <?php echo csrf_field(); ?>
 

@@ -133,7 +133,8 @@
 <?php unset($__componentOriginal68cb1971a2b92c9735f83359058f7108); ?>
 <?php endif; ?>
                         </form>
-                        <a href="<?php echo e(route('user.all')); ?>" class="font-medium text-sm text-gray-500">Customer Detail</a>
+                        <a href="<?php echo e(route('user.all')); ?>" class="font-medium text-sm text-gray-500">
+Customer Detail</a>
                      <?php $__env->endSlot(); ?>
                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
