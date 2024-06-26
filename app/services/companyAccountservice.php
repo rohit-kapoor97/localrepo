@@ -14,12 +14,13 @@ class companyAccountservice implements companyInterface{
 
     }
    public function detail(){
-    return companyAccount::where('cust_id')->get();
+    return companyAccount::get();
     
     }
     
     public function getDetailById($id){
-        return ;
+        return companyAccount::where('cust_id', $id)->get();
+      
     }
 
     public function getUserById($id){
@@ -36,9 +37,8 @@ class companyAccountservice implements companyInterface{
         return ;
     }
     public function searchuser(){
-        
-     $view=companyAccount::where('cust_id')->get();
-     return $view;
+        return;
+    
     }
 
     

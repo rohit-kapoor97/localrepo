@@ -66,17 +66,13 @@
 <?php echo csrf_field(); ?>
 
 <button type="submit" class="btn btn-primary" value="submit">Search</button>
-    </form>
-    </div>
-    
-    <button type="button" class="btn btn-danger log-btn"><a href="<?php echo e(route('delete.user')); ?>" class="log-text">Logout</a></button>
-   
-
+</form>
 </div>
 
-    </header>
-
-
     
+    <button type="button" class="btn btn-danger log-btn"><a href="<?php echo e(route('delete.user')); ?>" class="log-text">Logout</a></button>
+</div>
+
+</header>
 </body>
 </html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/layouts/header.blade.php ENDPATH**/ ?>

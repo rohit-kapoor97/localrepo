@@ -35,11 +35,11 @@ input::placeholder{
 
 }
 .bt{
-    width:200px;
+    width:245px;
     margin:auto;
     padding:5px 8px;
     display:flex;
-    gap:20px;
+    gap:10px;
 }
 .drop_main{
     width:300px;
@@ -61,6 +61,21 @@ width:200px;
 }
 h3{
     margin:0px 35px;
+}
+.viewbt{
+   
+    position:absolute;
+    top:392px;
+    left:800px;
+ 
+}
+.btview{
+    color:white;
+   
+}
+.btview:hover{
+    text-decoration:none;
+    color:white;
 }
  </style>
 </head>
@@ -90,7 +105,7 @@ h3{
    
     </div>
     </form>
-    <button class="btn btn-primary mt-3"><a href="{{route('user.delete', $users->id )}}">Delete</a></button>
+    <button class="btn btn-primary mt-3 viewbt"><a href="{{route('user.delete', $users->id )}}" class="btview">Delete</a></button>
    
     </div>
 

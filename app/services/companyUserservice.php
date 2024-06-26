@@ -18,7 +18,7 @@ class companyUserservice implements companyInterface{
         return;
     }
     public function getUserById($id){
-        return;
+        return companyUser::find($id)->delete();
     }
     public function editUser($id, array $add){
         return;

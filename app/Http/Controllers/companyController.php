@@ -127,8 +127,9 @@ $data=[
 return $this->account->creatuser($data);
   }
 
-  public function listitem(request $req){
-    $users=$this->account->detail();
+  public function listitem(request $req, $id){
+    $users=$this->account->getDetailById($id);
+
    
     return view('itemlist', compact('users'));
   }
@@ -153,6 +154,12 @@ public function delete($id){
   
   $this->service->getDetailById($id);
   return redirect()->route('user.all');
+}
+
+public function compdelete($id){
+  
+  $this->compuser->getDetailById($id);
+  return redirect()->route('view.comp');
 }
 
 

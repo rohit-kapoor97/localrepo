@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
     <title>Document</title>
     <style>
     body{
@@ -36,22 +36,22 @@
              
                </tr>
                </thead>
-               @php $count=1; @endphp
-             @foreach($user as $user)
+               <?php $count=1; ?>
+             <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
                
-                <td>{{$count}}</td>
-                <td>{{$user-> companyname}}</td>
-                <td><a href="{{route('comp.delete', $user->id)}}">Delete</a></td>
+                <td><?php echo e($count); ?></td>
+                <td><?php echo e($user-> companyname); ?></td>
+                <td><a href="<?php echo e(route('comp.delete', $user->id)); ?>">Delete</a></td>
             
                 
             </tr>
-               @php $count++ @endphp
-              @endforeach
+               <?php $count++ ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
         
     </div>
     
 </body>
-</html>
+</html><?php /**PATH E:\xampp\htdocs\companyproject\resources\views/viewcomp.blade.php ENDPATH**/ ?>

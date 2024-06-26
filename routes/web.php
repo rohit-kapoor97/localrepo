@@ -61,6 +61,8 @@ Route::get('/usersearch', [companycontroller::class, 'searchre'])->name('search.
 
 Route::get('/delete/{id}', [companycontroller::class, 'delete'])->name('user.delete');
 
+Route::get('/deletecomp/{id}', [companycontroller::class, 'compdelete'])->name('comp.delete');
+
 
 
 });
