@@ -93,7 +93,7 @@ h3{
                <tr>
                
                 <td>{{$count}}</td>
-                <td>{{$user-> name}}</td>
+                <td>{{$user->name}}</td>
                 <td><a href="{{route('item.view', $user->id)}}" class="text-success">View-Items</a></td>
                 <td>{{$user ->getAccountDetail->where('type', 'Plus')->sum('amount') - $user->getAccountDetail->where('type', 'Minus')->sum('amount')}}</td>
             

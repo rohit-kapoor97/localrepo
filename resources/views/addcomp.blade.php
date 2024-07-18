@@ -86,7 +86,7 @@ h3{
     
 
     <div class="main">
-    <h1 class="text-success">hello</h1>
+    <h1 class="text-success">Hello</h1>
     <form action="{{route('comp.add')}}" Method="Post">
         @csrf
 
