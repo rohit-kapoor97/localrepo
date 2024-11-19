@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Document</title>
     <style>
@@ -21,6 +27,12 @@
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
             justify-content: center;
         }
+        @media (min-width: 768px) {
+   body {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
 
         input {
             width: 100%;
@@ -87,19 +99,12 @@
 
 <body>
     @include('layouts.header')
-    <div class="drop_main">
-        <h3>dashboard</h3>
-        <button class="mt-3 box"><a href="{{ route('comp.view') }}">Add Company</a></button>
-        <button class="mt-3 box"><a href="{{ route('view.coust') }}">Add Customer</a></button>
-        <button class="mt-3 box"><a href="{{ route('cust.view') }}">View Customer</a></button>
-        <button class="mt-3 box"><a href="{{ route('show.amount') }}">Payment</a></button>
-        <button class="mt-3 box"><a href="{{ route('user.all') }}">Customer Details</a></button>
-    </div>
+    @include('sidebar')
 
 
 
     <div class="main">
-        <h1 class="text-success">hello</h1>
+        <h2 class="text-success text-center">Customer Detali!</h2>
         <form action="{{ route('add.user') }}" Method="Post">
             @csrf
 
@@ -115,7 +120,7 @@
             <input type="hidden" value="{{ Auth::id() }}" name="userid">
             <div class="bt">
                 <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
-                <button type="button" class="btn btn-primary mt-3">Cancel</button>
+                <button type="button" class="btn btn-primary mt-3"> <a href="{{route('user.all')}}" class="text-white text-decoration-none">Cancel</a></button>
 
             </div>
         </form>

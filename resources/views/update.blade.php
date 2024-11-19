@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>Document</title>
     <style>
@@ -81,16 +86,9 @@ h3{
 </head>
 <body>
 @include('layouts.header')
-<div class="drop_main">
-        <h3>dashboard</h3>
-       <button class="mt-3 box"><a href="{{route('comp.view')}}">Add Company</a></button> 
-       <button class="mt-3 box"><a href="{{route('view.coust')}}">Add Coustmer</a></button> 
-        <button class="mt-3 box"><a href="{{route('cust.view')}}">View Coustmer</a></button>
-        <button class="mt-3 box"><a href="{{route('show.amount')}}">Payment</a></button>
-        <button class="mt-3 box"><a href="{{route('user.all')}}">Coustmer Details</a></button>
-    </div>
+@include('sidebar')
     <div class="main">
-    <h1 class="text-success">hello</h1>
+    <h1 class="text-success">Edit Details</h1>
     <form action="{{route('edit.coust',$users->id)}}" Method="Post">
         @csrf
 
@@ -101,15 +99,19 @@ h3{
 
     <div class="bt">
     <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
-    <button type="button" class="btn btn-primary mt-3">Cancel</button>
+    <button type="button" class="btn btn-primary mt-3"> <a href="{{route('user.all')}}" class="text-white text-decoration-none">Cancel</a></button>
    
     </div>
     </form>
-    <button class="btn btn-primary mt-3 viewbt"><a href="{{route('user.delete', $users->id )}}" class="btview">Delete</a></button>
-   
-    </div>
+    <button class="btn btn-primary mt-3 viewbt" id="btn">
+        <a href="{{route('user.delete', $users->id )}}" class="btview">Delete</a>
+    </button>
 
+ </div>
 
+<script>
+    var button= document.getElementById('btn');
+</script>
     
 </body>
 </html>

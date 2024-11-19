@@ -90,7 +90,7 @@ h3{
         <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Coustmer Details</a></button>
     </div>
     <div class="main">
-    <h1 class="text-success">hello</h1>
+    <h1 class="text-success">Edit Details</h1>
     <form action="<?php echo e(route('edit.coust',$users->id)); ?>" Method="Post">
         <?php echo csrf_field(); ?>
 
@@ -101,15 +101,19 @@ h3{
 
     <div class="bt">
     <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
-    <button type="button" class="btn btn-primary mt-3">Cancel</button>
+    <button type="button" class="btn btn-primary mt-3"> <a href="<?php echo e(route('user.all')); ?>" class="text-white text-decoration-none">Cancel</a></button>
    
     </div>
     </form>
-    <button class="btn btn-primary mt-3 viewbt"><a href="<?php echo e(route('user.delete', $users->id )); ?>" class="btview">Delete</a></button>
-   
-    </div>
+    <button class="btn btn-primary mt-3 viewbt" id="btn">
+        <a href="<?php echo e(route('user.delete', $users->id )); ?>" class="btview">Delete</a>
+    </button>
 
+ </div>
 
+<script>
+    var button= document.getElementById('btn');
+</script>
     
 </body>
 </html><?php /**PATH C:\xampp\htdocs\companyproject\resources\views/update.blade.php ENDPATH**/ ?>

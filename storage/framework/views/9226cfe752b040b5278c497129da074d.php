@@ -86,6 +86,7 @@ h3{
                 <th>Item</th>
                 <th>Amount</th>
                 <th>Payment Status</th>
+                <th>Date</th>
                </tr>
                </thead>
                <?php $count=1; ?>
@@ -96,6 +97,7 @@ h3{
                 <td><?php echo e($user -> item); ?></td>
                 <td><?php echo e($user -> amount); ?></td>
                 <td><?php echo e($user -> type); ?></td>
+                <td><?php echo e($user -> created_at->format('D-m-y')); ?></td>
                
             </tr>
                <?php $count++ ?>

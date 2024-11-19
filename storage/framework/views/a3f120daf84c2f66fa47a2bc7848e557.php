@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
     <title>Document</title>
     <style>
@@ -67,14 +72,7 @@ h3{
 <body>
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<div class="drop_main">
-        <h3>dashboard</h3>
-       <button class="mt-3 box"><a href="<?php echo e(route('comp.view')); ?>">Add Company</a></button> 
-       <button class="mt-3 box"><a href="<?php echo e(route('view.coust')); ?>">Add Customer</a></button> 
-        <button class="mt-3 box"><a href="<?php echo e(route('cust.view')); ?>">View Customer</a></button>
-        <button class="mt-3 box"><a href="<?php echo e(route('show.amount')); ?>">Payment</a></button>
-        <button class="mt-3 box"><a href="<?php echo e(route('user.all')); ?>">Customer Details</a></button>
-    </div>
+<?php echo $__env->make('sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
    
     <div class="main mt-5">
         <table class="table table-striped table-Light">
@@ -86,6 +84,7 @@ h3{
                 <th>Item</th>
                 <th>Total</th>
                 <th>Payment</th>
+               
                </tr>
                </thead>
                <?php $count=1; ?>
@@ -93,10 +92,10 @@ h3{
                <tr>
                
                 <td><?php echo e($count); ?></td>
-                <td><?php echo e($user-> name); ?></td>
+                <td><?php echo e($user->name); ?></td>
                 <td><a href="<?php echo e(route('item.view', $user->id)); ?>" class="text-success">View-Items</a></td>
                 <td><?php echo e($user ->getAccountDetail->where('type', 'Plus')->sum('amount') - $user->getAccountDetail->where('type', 'Minus')->sum('amount')); ?></td>
-            
+             
                 <td><a href="<?php echo e(route('amount.view', $user->id)); ?>">Payment</a></td>
 
                </tr>

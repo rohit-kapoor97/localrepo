@@ -82,7 +82,7 @@ Customer Details</a></button>
     </div>
     
     <div class="main">
-    <h1 class="text-success">hello</h1>
+    <h1 class="text-success"><?php echo e($user->name); ?></h1>
     <form action="<?php echo e(route('amount.show')); ?>" Method="Post">
         <?php echo csrf_field(); ?>
 
