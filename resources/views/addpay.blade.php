@@ -17,14 +17,14 @@
             padding:0px;
             box-sizing:border-box;
         }
-.main{
+/* .main{
     width:400px;
     margin: 100px auto;
     padding:10px 50px;
     background-color:white;
     box-shadow:0px 5px 10px rgba(0,0,0,0.5); 
     justify-content:center;
-}
+} */
 
 input{
     width:100%;
@@ -47,24 +47,7 @@ input::placeholder{
     display:flex;
     gap:20px;
 }
-.drop_main{
-    width:300px;
-    height:100%;
-    background-color:white;
-    box-shadow:0px 5px 10px rgba(0,0,0,0.4);
-    position:absolute;
-    left:0px;
-    margin:auto;
-    padding:50px;
-}
-.box{
-width:200px;
-    line-height:30px;
-    background-color:white;
-    box-shadow:0px 1px 2px rgba(0,0,0,0.4);
-    border-radius:10px;
-    border:none;
-}
+
 h3{
     margin:0px 35px;
 }
@@ -73,7 +56,7 @@ h3{
 <body>
 @include('layouts.header')
 @include('sidebar')
-    
+    <div class="container">
     <div class="main">
     <h1 class="text-success">{{$user->name}}</h1>
     <form action="{{route('amount.show')}}" Method="Post">
@@ -92,7 +75,7 @@ h3{
     </div>
     </form>
     </div>
-
+</div>
 
     
 </body>

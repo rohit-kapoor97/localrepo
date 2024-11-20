@@ -19,8 +19,9 @@
             box-sizing: border-box;
         }
 
-        .main {
+        /* .main {
             width: 400px;
+            max-width: 100%;
             margin: 100px auto;
             padding: 10px 50px;
             background-color: white;
@@ -32,7 +33,7 @@
       flex-direction: row;
       gap: 2rem;
     }
-  }
+  } */
 
         input {
             width: 100%;
@@ -53,31 +54,14 @@
 
         .bt {
             width: 200px;
+            max-width: 100%;
             margin: auto;
             padding: 5px 8px;
             display: flex;
             gap: 20px;
         }
 
-        .drop_main {
-            width: 300px;
-            height: 100%;
-            background-color: white;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
-            position: absolute;
-            left: 0px;
-            margin: auto;
-            padding: 50px;
-        }
-
-        .box {
-            width: 200px;
-            line-height: 30px;
-            background-color: white;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
-            border-radius: 10px;
-            border: none;
-        }
+  
 
         h3 {
             margin: 0px 35px;
@@ -102,7 +86,7 @@
     @include('sidebar')
 
 
-
+<div class="container">
     <div class="main">
         <h2 class="text-success text-center">Customer Detali!</h2>
         <form action="{{ route('add.user') }}" Method="Post">
@@ -118,7 +102,7 @@
             <input type="text" class="mt-3" name="coustname" placeholder="Name">
             <input type="text" class="mt-3" name="coustnum" placeholder="Mobile No.">
             <input type="hidden" value="{{ Auth::id() }}" name="userid">
-            <div class="bt">
+            <div class="bt text-center">
                 <button type="submit" class="btn btn-primary mt-3" value="submit">Save</button>
                 <button type="button" class="btn btn-primary mt-3"> <a href="{{route('user.all')}}" class="text-white text-decoration-none">Cancel</a></button>
 
@@ -126,7 +110,7 @@
         </form>
     </div>
 
-
+</div>
 
 </body>
 

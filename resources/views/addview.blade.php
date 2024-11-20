@@ -16,32 +16,7 @@
             padding:0px;
             box-sizing:border-box;
         }
-.main{
-    width:100%;
-    max-width:900px;
-    margin:auto;
-    padding:0px 40px;
-    
-    /* justify-content:center; */
-}
-        .drop_main{
-    width:300px;
-    height:100%;
-    background-color:white;
-    box-shadow:0px 5px 10px rgba(0,0,0,0.4);
-    position:absolute;
-    left:0px;
-    margin:auto;
-    padding:50px;
-}
-.box{
-width:200px;
-    line-height:30px;
-    background-color:white;
-    box-shadow:0px 1px 2px rgba(0,0,0,0.4);
-    border-radius:10px;
-    border:none;
-}
+
 h1{
     margin:0px 150px;
 }
@@ -53,7 +28,8 @@ h3{
 <body>
 @include('layouts.header')
 @include('sidebar')
-    <div class="main mt-5">
+<div class="container">
+    <div class="main_box mt-5">
 
     <h1 class="text-primary text-wrap">Welcome To New Canteen</h1>
     <div class="table-responsive">
@@ -84,6 +60,7 @@ h3{
     </table>
 </div>
     </div>
+</div>
 
     <ul id="data-list"></ul>
     

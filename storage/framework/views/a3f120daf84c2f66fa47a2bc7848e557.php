@@ -16,14 +16,7 @@
             padding:0px;
             box-sizing:border-box;
         }
-        .main{
-    width:100%;
-    max-width:900px;
-    margin:auto;
-    padding:0px 40px;
-    
-    /* justify-content:center; */
-}
+
 
 input{
     width:100%;
@@ -46,24 +39,7 @@ input::placeholder{
     display:flex;
     gap:20px;
 }
-.drop_main{
-    width:300px;
-    height:100%;
-    background-color:white;
-    box-shadow:0px 5px 10px rgba(0,0,0,0.4);
-    position:absolute;
-    left:0px;
-    margin:auto;
-    padding:50px;
-}
-.box{
-width:200px;
-    line-height:30px;
-    background-color:white;
-    box-shadow:0px 1px 2px rgba(0,0,0,0.4);
-    border-radius:10px;
-    border:none;
-}
+
 h3{
     margin:0px 35px;
 }
@@ -73,8 +49,10 @@ h3{
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php echo $__env->make('sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+<div class="container">
    
-    <div class="main mt-5">
+    <div class="main_box mt-5">
         <table class="table table-striped table-Light">
             <tbody >
                 <thead class="table-dark">
@@ -106,7 +84,7 @@ h3{
         
     </div>
 
-
+</div>
     
 </body>
 </html><?php /**PATH C:\xampp\htdocs\companyproject\resources\views/payment.blade.php ENDPATH**/ ?>
