@@ -47,24 +47,7 @@ input::placeholder{
     display:flex;
     gap:20px;
 }
-.drop_main{
-    width:300px;
-    height:100%;
-    background-color:white;
-    box-shadow:0px 5px 10px rgba(0,0,0,0.4);
-    position:absolute;
-    left:0px;
-    margin:auto;
-    padding:50px;
-}
-.box{
-width:200px;
-    line-height:30px;
-    background-color:white;
-    box-shadow:0px 1px 2px rgba(0,0,0,0.4);
-    border-radius:10px;
-    border:none;
-}
+
 h3{
     margin:0px 35px;
 }
@@ -77,7 +60,7 @@ h3{
 @include('layouts.header')
 @include('sidebar')
     <div class="main mt-5">
-        <table class="table table-striped table-Light">
+        <table class="table table-striped table-Light table-responsive">
             <tbody >
                 <thead class="table-dark">
                 <tr>

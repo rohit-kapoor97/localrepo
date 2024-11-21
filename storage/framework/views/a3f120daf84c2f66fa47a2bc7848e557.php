@@ -53,7 +53,7 @@ h3{
 <div class="container">
    
     <div class="main_box mt-5">
-        <table class="table table-striped table-Light">
+        <table class="table table-striped table-Light table-responsive">
             <tbody >
                 <thead class="table-dark">
                 <tr>

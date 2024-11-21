@@ -17,9 +17,9 @@
             box-sizing:border-box;
         }
 
-h1{
+/* h1{
     margin:0px 150px;
-}
+} */
 h3{
     margin:0px 35px;
 }
@@ -29,9 +29,9 @@ h3{
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="container">
-    <div class="main_box mt-5">
+    <div class="main_box mt-2">
 
-    <h1 class="text-primary text-wrap">Welcome To New Canteen</h1>
+    <h1 class="text-primary h_tag">Welcome To New Canteen</h1>
     <div class="table-responsive">
         <table class="table table-striped table-Light mt-3">
             <tbody >
@@ -58,7 +58,7 @@ h3{
               
         </tbody>
     </table>
-</div>
+ </div>
     </div>
 </div>
 

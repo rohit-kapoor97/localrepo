@@ -1826,6 +1826,19 @@
     .table-responsive-sm > .table-bordered {
       border: 0;
     }
+    .main_box {
+     margin: 20px 0px;
+      padding: 15px;
+    }
+
+    .h_tag{
+      margin: 0px;
+      font-size: 1.2rem;
+      text-wrap: wrap ;
+      text-align: center;
+      
+    }
+
   }
   
   @media (max-width: 767.98px) {
@@ -1838,6 +1851,7 @@
     .table-responsive-md > .table-bordered {
       border: 0;
     }
+
   }
   
   @media (max-width: 991.98px) {
@@ -1854,6 +1868,7 @@
     .main {
       padding: 10px 20px;
   }
+
   }
 
   
