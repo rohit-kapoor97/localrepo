@@ -37,7 +37,7 @@ protected $service;
 protected $account;
 protected $compuser;
 
-public function __construct(companyDetailservice $service, companyAccountservice $account, companyUserservice $compuser ){
+public function __construct(companyDetailservice $service, companyAccountservice $account, companyUserservice $compuser){
   $this->service=$service;
   $this->account=$account;
   $this->compuser=$compuser;
@@ -109,8 +109,6 @@ public function destroy(){
 }
 
 // companyAccount
-
-
 
 public function amountshow(request $req){
 $req->validate([

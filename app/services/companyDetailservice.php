@@ -8,7 +8,7 @@ use App\Models\user;
 
 
 class companyDetailservice implements CompanyInterface{
-    
+  
      
        
        public function creatuser(array $data){
@@ -44,7 +44,8 @@ class companyDetailservice implements CompanyInterface{
  
          }
          public function searchuser(){
-          return companyDetail::where('name', 'LIKE', '%'.request()->input("q").'%')->paginate(5);
+          return companyDetail::where('name', 'LIKE', '%'.request()->input("q").'%')->
+                               paginate(5);
          }
 
     }
